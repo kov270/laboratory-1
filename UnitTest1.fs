@@ -7,19 +7,18 @@ open Functions
 let Setup () = ()
 
 let input3D = uint64 "600851475143"
-let input3N = uint64 3
 let result3 = 6857UL
 
 let result28 = 669171001
 
 [<Test>]
 let Test1 () =
-    let f: uint64 = rec31 input3D input3N
+    let f: uint64 = rec31_c input3D
     assert (f = result3)
 
 [<Test>]
 let Test2 () =
-    let factRes = resultFactors input3N input3D
+    let factRes = resultFactors_c input3D
     assert (factRes = result3)
 
 [<Test>]
@@ -35,9 +34,7 @@ let TestTailRec () =
 
 [<Test>]
 let TestModuleRel () =
-    let list1 =
-        [ for a in 1..500 do
-              yield (a * 2 + 1) ]
-
-    let res = module28 list1
-    assert (res = result28)
+    let res1 = module28_1
+    assert (res1 = result28)
+    let res2 = module28_2
+    assert (res2 = result28)
